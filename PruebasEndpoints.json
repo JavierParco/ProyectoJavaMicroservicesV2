@@ -1,0 +1,534 @@
+{
+	"info": {
+		"_postman_id": "c1b2a3d4-e5f6-7890-1234-abcdef123456",
+		"name": "Microservice API - Clientes, Cuentas, Movimientos",
+		"description": "Colección para probar la API de gestión de clientes, cuentas y movimientos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"description": "Operaciones CRUD para Clientes",
+			"item": [
+				{
+					"name": "1. Obtener Todos los Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/clientes",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Obtener Cliente por clienteId (Jose Lema)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/clientes/JL001",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes",
+								"JL001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Obtener Cliente por clienteId (Marianela Montalvo)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/clientes/MM002",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes",
+								"MM002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Actualizar Cliente (Juan Osorio)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Juan Carlos Osorio\",\n    \"genero\": \"Masculino\",\n    \"edad\": 41,\n    \"identificacion\": \"1700000000\",\n    \"direccion\": \"Av. Amazonas y Patria\",\n    \"telefono\": \"0988745870\",\n    \"contrasena\": \"newPwdJuan\",\n    \"estado\": true\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/clientes/JO003",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes",
+								"JO003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Crear un Nuevo Cliente (Laura Paez)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Laura Paez\",\n    \"genero\": \"Femenino\",\n    \"edad\": 30,\n    \"identificacion\": \"1722334455\",\n    \"direccion\": \"Calle Sol y Luna\",\n    \"telefono\": \"0960001122\",\n    \"clienteId\": \"LP004\",\n    \"contrasena\": \"laurapass\",\n    \"estado\": true\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/clientes",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Eliminar Cliente (Juan Osorio - JO003)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/clientes/JO003",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"clientes",
+								"JO003"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuentas",
+			"description": "Operaciones CRUD para Cuentas",
+			"item": [
+				{
+					"name": "1. Obtener Todas las Cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Obtener Cuenta por Número (Jose Lema)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas/478758",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas",
+								"478758"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Obtener Cuentas por clienteId (Jose Lema)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas/cliente/JL001",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas",
+								"cliente",
+								"JL001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Crear Nueva Cuenta (Marianela Montalvo)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"230001\",\n    \"tipoCuenta\": \"AHORRO\",\n    \"saldoInicial\": 750,\n    \"estado\": true,\n    \"clienteId\": \"MM002\"\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Actualizar Cuenta (Marianela - Inactiva)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tipoCuenta\": \"CORRIENTE\",\n    \"estado\": false\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas/225487",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas",
+								"225487"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Eliminar Cuenta (Jose Lema - 495878)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/cuentas/495878",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"cuentas",
+								"495878"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"description": "Operaciones para Movimientos",
+			"item": [
+				{
+					"name": "1. Registrar Crédito (Juan Osorio)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"330011\",\n    \"tipoMovimiento\": \"CREDITO\",\n    \"valor\": 250\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Registrar Débito (Juan Osorio)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"330011\",\n    \"tipoMovimiento\": \"DEBITO\",\n    \"valor\": 100\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Obtener Todos los Movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Obtener Movimiento por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos/1",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Obtener Movimientos por Número de Cuenta (Jose Lema)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos/cuenta/478758",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos",
+								"cuenta",
+								"478758"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Registrar Débito - Saldo Insuficiente (Juan Osorio)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"330011\",\n    \"tipoMovimiento\": \"DEBITO\",\n    \"valor\": 20000 \n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. Registrar Débito - Cupo Diario Excedido (Juan Osorio)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numeroCuenta\": \"330011\",\n    \"tipoMovimiento\": \"DEBITO\",\n    \"valor\": 1001 \n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/movimientos",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reportes",
+			"description": "Operaciones para Reportes",
+			"item": [
+				{
+					"name": "1. Generar Reporte Movimientos (Jose Lema)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/reportes?clienteId=JL001&fechaInicio=2025-05-10&fechaFin=2025-05-20",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "JL001"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2025-05-10"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-05-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Generar Reporte Movimientos (Marianela Montalvo)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/reportes?clienteId=MM002&fechaInicio=2025-05-15&fechaFin=2025-05-20",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "MM002"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2025-05-15"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-05-20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_BASE",
+			"value": "http://localhost:8082",
+			"type": "string"
+		}
+	]
+}
